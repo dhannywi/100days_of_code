@@ -1,4 +1,4 @@
-# 100days of Python
-Compilation of python codes from my 100 days of Python exercises
+# 100days of Code
+Compilation of codes from my 100 days of code challenge
 
-One of my New Year's resolution  was that I wanted to be a bettter Python programmer. I will be adding into this repository my programming exercises to document my journey. My hope is that by the end of this challenge I have a solid understanding of Data Structures & Algorithms using Python and is able to optimize and debug my code efficiently.
+I took on this challenge to help myself stay consistent and learn new skills. Currently, I'm focused on learning JavaScript and the MERN stack.
