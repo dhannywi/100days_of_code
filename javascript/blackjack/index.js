@@ -1,47 +1,60 @@
-// Function generates random numbers
-function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min) ) + min;
+// HTML elements
+let cardsEl = document.querySelector("#cards-el")
+let sumEl = document.querySelector("#sum-el")
+let messageEl = document.getElementById("message-el")
+let playerEl = document.getElementById("player-el")
+
+let hasBlackJack = false
+let isAlive = false
+let cards = []
+let message = ""
+let player = {
+    name : "Dhanny",
+    chips : 145
 }
 
-let hasBlackJack = false;
-let isAlive = true;
-let firstCard = getRndInteger(2, 11);
-let secondCard = getRndInteger(2, 11);
-let cards = [firstCard, secondCard];
-let cardsEl = document.querySelector("#cards-el");
-
-let sumEl = document.querySelector("#sum-el");
-let sum = firstCard + secondCard;
-
-let messageEl = document.getElementById("message-el");
-let message = "";
+// Function generates random numbers
+function getRandomCard(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min
+}
 
 function startGame() {
-    renderGame()
-    cardsEl.textContent = `Cards: ${cards[0]} - ${cards[1]}`
-    sumEl.textContent = `Sum: ${sum}`;
+    if (isAlive === false || hasBlackJack === true) {
+        isAlive = true
+        cards = []
+        cards.push(getRandomCard(2, 11))
+        cards.push(getRandomCard(2, 11))
+        renderGame()
+    }
 }
 
 function renderGame() {
+    let sum = 0;
+    cardsEl.textContent = "Cards: "
+    for (let i=0; i<cards.length; i++) {
+        sum += cards[i]
+        cardsEl.textContent += cards[i] + ' - '
+    }
+    sumEl.textContent = `Sum: ${sum}`
     // Conditions
     if (sum <= 20) {
-        message = "Do you want to draw a new card?";
+        message = "Do you want to draw a new card?"
     } else if (sum === 21) {
-        message = "You've got Blackjack!";
-        hasBlackJack = true;
+        message = "You've got Blackjack!"
+        hasBlackJack = true
     } else {
-        message = "You're out of the game!";
-        isAlive = false;
+        message = "You're out of the game!"
+        isAlive = false
     }
-    messageEl.textContent = message;
+    messageEl.textContent = message
+    playerEl.textContent = player.name + ": $" + player.chips
 }
 
 function newCard() {
-    cards.push(getRndInteger(2, 11));
-    sum += newCard;
-    renderGame()
-    cardsEl.textContent = `Cards: ${firstCard} - ${secondCard} - ${newCard}`
-    sumEl.textContent = `Sum: ${sum}`;
+    if (isAlive === true && hasBlackJack === false) {
+        cards.push(getRandomCard(2, 11))
+        renderGame()
+}
 }
 
 // Winner CASH OUT
