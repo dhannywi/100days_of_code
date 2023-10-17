@@ -22,12 +22,15 @@ tabBtn.addEventListener("click", function() {
 
 function render(Links) {
     let listItems = ""
-    for (let i=0; i<Links.length; i++) {
-        listItems += `
-        <li>
-            <a href="${Links[i]}" target="_blank">${Links[i]}</a>
-        </li>
-        `
+    if (Links.length > 0) {
+        listItems += `<li>Saved Links:</li>`
+        for (let i=0; i<Links.length; i++) {
+            listItems += `
+            <li>
+                <a href="${Links[i]}" target="_blank">${Links[i]}</a>
+            </li>
+            `
+        }
     }
     ulEl.innerHTML = listItems
 }

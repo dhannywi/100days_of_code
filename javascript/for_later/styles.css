@@ -1,30 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;1,400;1,700&display=swap');
+
 body {
+    color: #2F4F4F;
     margin: 0;
     padding: 10px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Space Mono', monospace;
     min-width: 400px;
+    background-color: #FFFAF0;
 }
 
 input {
+    font-family: 'Space Mono', monospace;
+    font-weight: 400;
+    color: #2F4F4F;
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
+    background-color: #FFFAF0;
     margin-bottom: 5px;
-    border: 1px solid #5f9341;
-    background-color: #fff;
+    border: 2px solid #5f9341;
+    border-radius: 5px;
+    caret-color: #5f9341;
+}
+
+input[type='text']:focus{
+    border-radius:10px;
+    outline: none;
 }
 
 button {
+    font-family: 'Space Mono', monospace;
     font-weight: bold;
-    color: #fff;
+    color: #FFFAF0;
     padding: 10px;
     background-color: #5f9341;
-    border: 1px solid #5f9341;
+    border: 2px solid #5f9341;
+    border-radius: 5px;
+}
+
+button:hover {
+    border-radius:10px;
+    background-color: #FFFAF0;
+    color: #5f9341;
+    text-decoration: underline;
+    transition: 0.5s;
 }
 
 #delete-btn {
     color: #5f9341;
-    background-color: #fff;
+    background-color: #FFFAF0;
+    font-style: italic;
+}
+
+#delete-btn:hover {
+    color: #FFFAF0;
+    background-color: #FFB6C1;
+    border: 2px solid #FFB6C1;
+    text-decoration: underline;
 }
 
 ul {
@@ -39,4 +71,10 @@ li {
 
 li a {
     color: #5f9341;
+}
+
+li a:hover {
+    font-weight: bold;
+    font-style: italic;
+    color: #FFB6C1;
 }
